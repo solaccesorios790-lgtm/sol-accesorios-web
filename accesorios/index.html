@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Catálogo de Accesorios y Componentes Tácticos | Sol Accesorios</title>
+  <meta name="description" content="Catálogo de accesorios tácticos para Glock, Taurus, HS, Springfield, Bull, Smith & Wesson, KOR, BRG, CZ, Canik y Jericho. Mecanizado CNC en aluminio de alta resistencia y polímeros avanzados.">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0a0a0a; /* Negro carbón */
+      font-family: 'Inter', 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+      color: #e0e0e0;
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem 5rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Contenedor principal */
+    .main-container {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* ========== ENLACE VOLVER ========== */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #a8a8a8;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.5rem 0;
+      margin-bottom: 2.5rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .back-link:hover {
+      color: #ffffff;
+      border-bottom-color: #3a3a3a;
+    }
+
+    .back-link .arrow {
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .back-link:hover .arrow {
+      transform: translateX(-3px);
+    }
+
+    /* ========== CABECERA DE SECCIÓN ========== */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #1f1f1f;
+    }
+
+    .section-header h1 {
+      font-size: clamp(1.7rem, 4.5vw, 3rem);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      line-height: 1.15;
+    }
+
+    .section-header .philosophy {
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      font-weight: 300;
+      color: #b8b8b8;
+      line-height: 1.75;
+      letter-spacing: 0.01em;
+    }
+
+    /* ========== GRID DE TARJETAS ========== */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Tarjeta de plataforma */
+    .catalog-card {
+      background-color: #111111;
+      border: 1px solid #262626;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 0.3s ease;
+    }
+
+    .catalog-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #333333;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 2;
+    }
+
+    .catalog-card:hover {
+      border-color: #9a9a9a;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(255, 255, 255, 0.05),
+                  0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .catalog-card:hover::before {
+      background-color: #d8d8d8;
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
+    }
+
+    /* Espacio superior para imagen */
+    .catalog-card .card-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #0d0d0d;
+      border-bottom: 1px solid #1f1f1f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .catalog-card .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.92;
+      transition: opacity 0.3s ease, transform 0.4s ease;
+    }
+
+    .catalog-card:hover .card-image img {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    /* Contenido de la tarjeta */
+    .catalog-card .card-body {
+      padding: 1.5rem 1.75rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .catalog-card .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .catalog-card .card-subtitle {
+      font-size: 0.85rem;
+      color: #909090;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    /* Botón de acción */
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      background-color: transparent;
+      border: 1px solid #3a3a3a;
+      color: #e0e0e0;
+      text-decoration: none;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.1rem;
+      border-radius: 2px;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .card-action:hover {
+      background-color: #ffffff;
+      color: #0a0a0a;
+      border-color: #ffffff;
+    }
+
+    .card-action .action-arrow {
+      font-size: 0.9rem;
+      line-height: 1;
+      transition: transform 0.25s ease;
+    }
+
+    .card-action:hover .action-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ========== BOTÓN FLOTANTE DE WHATSAPP ========== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      width: 58px;
+      height: 58px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35),
+                  0 2px 8px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 0.25s ease,
+                  background-color 0.25s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08) translateY(-2px);
+      background-color: #2ee06e;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5),
+                  0 3px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .whatsapp-float:active {
+      transform: scale(0.96);
+    }
+
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
+      fill: #ffffff;
+      display: block;
+    }
+
+    .whatsapp-float::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(37, 211, 102, 0.5);
+      animation: pulseRing 2.5s ease-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pulseRing {
+      0%   { transform: scale(1);   opacity: 0.7; }
+      70%  { transform: scale(1.4); opacity: 0;   }
+      100% { transform: scale(1.4); opacity: 0;   }
+    }
+
+    .whatsapp-float .tooltip {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%) scale(0.9);
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.85rem;
+      border-radius: 3px;
+      border: 1px solid #333333;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover .tooltip {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    /* ========== INSIGNIA FLOTANTE CORPORATIVA (LOGO) ========== */
+    .brand-float {
+      position: fixed;
+      bottom: 6.5rem;
+      right: 1.75rem;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: #111111;
+      border: 1px solid #2c2c2c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55),
+                  0 0 0 1px rgba(255, 255, 255, 0.04);
+      z-index: 999;
+      text-decoration: none;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-color 0.25s ease,
+                  box-shadow 0.25s ease;
+    }
+
+    .brand-float img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 6px;
+    }
+
+    .brand-float:hover {
+      transform: scale(1.08) translateY(-2px);
+      border-color: #9a9a9a;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6),
+                  0 0 14px rgba(255, 255, 255, 0.15);
+    }
+
+    .brand-float::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      pointer-events: none;
+    }
+
+    /* ========== FOOTER ========== */
+    .page-footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1f1f1f;
+      font-size: 0.72rem;
+      color: #606060;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (min-width: 600px) {
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .catalog-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1.75rem 1rem 5rem;
+      }
+
+      .back-link {
+        margin-bottom: 2rem;
+        font-size: 0.7rem;
+      }
+
+      .section-header {
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.75rem;
+      }
+
+      .section-header h1 {
+        font-size: 1.6rem;
+      }
+
+      .section-header .philosophy {
+        font-size: 0.9rem;
+      }
+
+      .catalog-card .card-body {
+        padding: 1.25rem 1.35rem 1.5rem;
+      }
+
+      .catalog-card .card-title {
+        font-size: 1.05rem;
+      }
+
+      .catalog-card .card-subtitle {
+        font-size: 0.8rem;
+      }
+
+      .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 1.25rem;
+        right: 1.25rem;
+      }
+
+      .whatsapp-float svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .whatsapp-float .tooltip {
+        display: none;
+      }
+
+      .brand-float {
+        width: 48px;
+        height: 48px;
+        bottom: 5.5rem;
+        right: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-header h1 {
+        font-size: 1.4rem;
+      }
+
+      .catalog-grid {
+        gap: 1rem;
+      }
+
+      .catalog-card .card-body {
+        padding: 1.1rem 1.2rem 1.35rem;
+      }
+
+      .catalog-card .card-title {
+        font-size: 1rem;
+      }
+
+      .catalog-card .card-subtitle {
+        font-size: 0.75rem;
+      }
+
+      .card-action {
+        font-size: 0.66rem;
+        padding: 0.65rem 0.9rem;
+      }
+
+      .whatsapp-float {
+        width: 48px;
+        height: 48px;
+        bottom: 1rem;
+        right: 1rem;
+      }
+
+      .whatsapp-float svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .brand-float {
+        width: 42px;
+        height: 42px;
+        bottom: 4.75rem;
+        right: 1rem;
+      }
+
+      .brand-float img {
+        padding: 4px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="main-container">
+    <!-- Enlace volver al inicio -->
+    <a href="../index.html" class="back-link">
+      <span class="arrow">←</span> Volver al inicio
+    </a>
+
+    <!-- Cabecera de la sección -->
+    <header class="section-header">
+      <h1>Catálogo de Accesorios y Componentes Tácticos</h1>
+      <p class="philosophy">
+        Si puedes imaginarlo, lo diseñamos y fabricamos. Desarrollamos componentes críticos mediante mecanizado CNC en aluminio de alta resistencia y polímeros avanzados, hechos a la medida exacta de tu plataforma.
+      </p>
+    </header>
+
+    <!-- Cuadrícula de clases de armas (14 tarjetas) -->
+    <div class="catalog-grid">
+
+      <!-- 1) Glock Gen 3, Gen 4 y Gen 5 -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/glock.jpg" alt="Accesorios para Glock Gen 3, 4 y 5" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Glock Gen 3, Gen 4 y Gen 5</h2>
+          <p class="card-subtitle">Accesorios para Glock Gen 3, 4 y 5</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20Glock%20Gen%203%2C%204%20y%205." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 2) Taurus TH9 — PÁGINA DEDICADA -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/taurus-th9.jpg" alt="Accesorios para Taurus TH9" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Taurus TH9</h2>
+          <p class="card-subtitle">Accesorios para Taurus TH9</p>
+          <a href="taurus-th9.html" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 3) Taurus G3 -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/taurus-g3.jpg" alt="Accesorios para Taurus G3" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Taurus G3</h2>
+          <p class="card-subtitle">Accesorios para Taurus G3</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20Taurus%20G3." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 4) HS-09 / Springfield XD -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/hs-09.jpg" alt="Accesorios para HS-09 y Springfield XD" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">HS-09 / Springfield XD</h2>
+          <p class="card-subtitle">Accesorios para HS-09 y Springfield XD</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20HS-09%20y%20Springfield%20XD." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 5) HS SF 19 -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/hs-sf19.jpg" alt="Accesorios para HS SF 19" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">HS SF 19</h2>
+          <p class="card-subtitle">Accesorios para HS SF 19</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20HS%20SF%2019." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 6) Bull Cherokee / Bull Cherokee G -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/bull-cherokee.jpg" alt="Accesorios para Bull Cherokee y Bull Cherokee G" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Bull Cherokee / Bull Cherokee G</h2>
+          <p class="card-subtitle">Accesorios para Bull Cherokee y Bull Cherokee G</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20Bull%20Cherokee%20y%20Bull%20Cherokee%20G." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 7) Smith & Wesson SD9 / SD9 VE — PÁGINA DEDICADA -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/sw-sd9.jpg" alt="Accesorios para Smith &amp; Wesson SD9 / SD9 VE" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Smith &amp; Wesson SD9 / SD9 VE</h2>
+          <p class="card-subtitle">Accesorios para Smith &amp; Wesson SD9 / SD9 VE</p>
+          <a href="smith-wesson-sd9.html" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 8) KOR FX-9 -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/kor-fx9.jpg" alt="Accesorios para KOR FX-9" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">KOR FX-9</h2>
+          <p class="card-subtitle">Accesorios para KOR FX-9</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20KOR%20FX-9." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 9) BRG Elite (reemplaza a Tanfoglio Force 99) -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/brg-elite.jpg" alt="Accesorios para BRG Elite" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">BRG Elite</h2>
+          <p class="card-subtitle">Accesorios para BRG Elite</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20BRG%20Elite." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 10) Smith & Wesson 5.7 -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/sw-57.jpg" alt="Accesorios para Smith &amp; Wesson 5.7" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Smith &amp; Wesson 5.7</h2>
+          <p class="card-subtitle">Accesorios para Smith &amp; Wesson 5.7</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20Smith%20%26%20Wesson%205.7." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 11) CZ P 10F -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/cz-p10f.jpg" alt="Accesorios para CZ P 10F" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">CZ P 10F</h2>
+          <p class="card-subtitle">Accesorios para CZ P 10F</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20CZ%20P%2010F." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 12) Canik TP9 Mod 2 -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/canik-tp9.jpg" alt="Accesorios para Canik TP9 Mod 2" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Canik TP9 Mod 2</h2>
+          <p class="card-subtitle">Accesorios para Canik TP9 Mod 2</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20Canik%20TP9%20Mod%202." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 13) Jericho 941 PL / PLC -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/jericho-941.jpg" alt="Accesorios para Jericho 941 PL / PLC" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Jericho 941 PL / PLC</h2>
+          <p class="card-subtitle">Accesorios para Jericho 941 PL / PLC</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20Jericho%20941%20PL%20%2F%20PLC." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 14) Jericho PL 9X19 / .40S&W -->
+      <article class="catalog-card">
+        <div class="card-image">
+          <img src="img/jericho-pl.jpg" alt="Accesorios para Jericho PL 9X19 / .40S&amp;W" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Jericho PL 9X19 / .40S&amp;W</h2>
+          <p class="card-subtitle">Accesorios para Jericho PL 9X19 / .40S&amp;W</p>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesan%20los%20accesorios%20para%20Jericho%20PL%209X19%20%2F%20.40S%26W." 
+             target="_blank" rel="noopener noreferrer" class="card-action">
+            Ver Modelos y Precios <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      Sol Accesorios — Innovación, Precisión y Calidad de Grado Armero
+    </footer>
+  </main>
+
+  <!-- ========== INSIGNIA FLOTANTE CORPORATIVA ========== -->
+  <a href="../index.html" 
+     class="brand-float" 
+     aria-label="Sol Accesorios — Volver al inicio">
+    <img src="../Logo.png" 
+         alt="Sol Accesorios" 
+         loading="lazy"
+         onerror="this.style.display='none'">
+  </a>
+
+  <!-- ========== BOTÓN FLOTANTE DE WHATSAPP ========== -->
+  <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesa%20una%20consulta%20t%C3%A9cnica%20sobre%20sus%20accesorios%20t%C3%A1cticos%20y%20componentes%20de%20precisi%C3%B3n." 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="whatsapp-float" 
+     aria-label="Contactar por WhatsApp">
+    <span class="tooltip">Consulta Técnica</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16.004 2.667c-7.36 0-13.333 5.973-13.333 13.333 0 2.347.613 4.64 1.784 6.667L2.667 29.333l6.853-1.76c1.963 1.067 4.16 1.627 6.484 1.627 7.36 0 13.333-5.973 13.333-13.333S23.364 2.667 16.004 2.667zm0 24c-2.08 0-4.107-.56-5.867-1.6l-.427-.24-4.053 1.04 1.067-3.947-.267-.427c-1.12-1.813-1.72-3.893-1.72-6.027 0-6.187 5.04-11.227 11.227-11.227s11.227 5.04 11.227 11.227-5.04 11.227-11.227 11.227zm6.24-8.4c-.347-.173-2.053-1.013-2.373-1.12-.32-.12-.547-.173-.773.173-.227.347-.88 1.12-1.08 1.347-.2.227-.4.253-.747.08-.347-.173-1.467-.547-2.787-1.72-1.04-.92-1.733-2.053-1.933-2.4-.2-.347-.027-.533.147-.707.16-.16.347-.4.52-.6.173-.2.227-.347.347-.573.12-.227.053-.427-.027-.6-.08-.173-.773-1.867-1.053-2.547-.28-.667-.56-.573-.773-.587l-.667-.013c-.227 0-.6.08-.92.427-.32.347-1.213 1.187-1.213 2.893 0 1.707 1.24 3.36 1.413 3.587.173.227 2.44 3.72 5.907 5.213.827.36 1.467.573 1.973.733.827.267 1.587.227 2.187.147.667-.093 2.053-.84 2.347-1.653.293-.813.293-1.507.2-1.653-.093-.147-.32-.227-.667-.4z"/>
+    </svg>
+  </a>
+</body>
+</html>

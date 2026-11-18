@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Taurus TH9 | Embudo Reload Master y Embudo Vorax | Sol Accesorios</title>
+  <meta name="description" content="Accesorios exclusivos para Taurus TH9: Embudo Reload Master y Embudo Vorax. Componentes tácticos en aluminio de alta resistencia mecanizado con precisión de grado armero por Sol Accesorios.">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #0a0a0a;
+      font-family: 'Inter', 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+      color: #e0e0e0;
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem 6rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .main-container { max-width: 1100px; width: 100%; margin: 0 auto; }
+
+    /* ========== ENLACE VOLVER ========== */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: #a8a8a8; text-decoration: none;
+      font-size: 0.75rem; font-weight: 400;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.5rem 0; margin-bottom: 2.5rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .back-link:hover { color: #ffffff; border-bottom-color: #3a3a3a; }
+    .back-link .arrow { font-size: 1rem; line-height: 1; transition: transform 0.2s ease; }
+    .back-link:hover .arrow { transform: translateX(-3px); }
+
+    /* ========== HERO ========== */
+    .product-header {
+      text-align: center; margin-bottom: 3.5rem;
+      padding-bottom: 2.5rem; border-bottom: 1px solid #1f1f1f;
+    }
+    .product-header .platform-tag {
+      display: inline-block; font-size: 0.7rem;
+      letter-spacing: 0.25em; color: #8a8a8a;
+      text-transform: uppercase; margin-bottom: 1.25rem;
+      padding: 0.4rem 0.9rem; border: 1px solid #2a2a2a; border-radius: 2px;
+    }
+    .product-header h1 {
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      font-weight: 600; letter-spacing: 0.02em;
+      color: #ffffff; text-transform: uppercase;
+      margin-bottom: 1rem; line-height: 1.15;
+    }
+    .product-header .platform-desc {
+      max-width: 720px; margin: 0 auto;
+      font-size: clamp(0.9rem, 1.7vw, 1.05rem);
+      font-weight: 300; color: #b8b8b8; line-height: 1.7;
+    }
+
+    /* ========== SECCIÓN DE PRODUCTOS ========== */
+    .products-section { display: flex; flex-direction: column; gap: 2rem; }
+    .product-card {
+      display: grid; grid-template-columns: 1fr; gap: 0;
+      background-color: #111111; border: 1px solid #262626;
+      border-radius: 4px; overflow: hidden; position: relative;
+      transition: border-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+    }
+    .product-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+      background-color: #333333; transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 2;
+    }
+    .product-card:hover {
+      border-color: #9a9a9a;
+      box-shadow: 0 10px 32px rgba(255,255,255,0.05), 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .product-card:hover::before {
+      background-color: #d8d8d8;
+      box-shadow: 0 0 14px rgba(255,255,255,0.45);
+    }
+
+    /* ========== CARRUSEL ========== */
+    .product-gallery {
+      width: 100%; background-color: #0d0d0d;
+      border-bottom: 1px solid #1f1f1f; position: relative; overflow: hidden;
+    }
+    .gallery-track {
+      display: flex; flex-wrap: nowrap; gap: 0;
+      overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      aspect-ratio: 4 / 3;
+      scrollbar-width: thin; scrollbar-color: #3a3a3a transparent;
+      cursor: grab;
+    }
+    .gallery-track:active { cursor: grabbing; }
+    .gallery-track::-webkit-scrollbar { height: 6px; }
+    .gallery-track::-webkit-scrollbar-track { background: #0d0d0d; }
+    .gallery-track::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 3px; }
+    .gallery-track::-webkit-scrollbar-thumb:hover { background: #5a5a5a; }
+
+    .gallery-slide {
+      flex: 0 0 100%; width: 100%; max-width: 100%; min-width: 100%;
+      scroll-snap-align: start; scroll-snap-stop: always;
+      height: 100%; display: flex; align-items: center; justify-content: center;
+      overflow: hidden; position: relative;
+    }
+    .gallery-slide img,
+    .gallery-slide video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      opacity: 0.94; transition: opacity 0.3s ease;
+      pointer-events: none; user-select: none; -webkit-user-drag: none;
+    }
+    .gallery-slide img.is-zoomable { pointer-events: auto; cursor: zoom-in; }
+    .gallery-slide video { pointer-events: auto; background: #000; }
+    .product-card:hover .gallery-slide img { opacity: 1; }
+
+    .gallery-slide.is-empty {
+      background-color: #0d0d0d;
+      background-image:
+        linear-gradient(135deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+        linear-gradient(225deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+        linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+        linear-gradient(315deg, rgba(255,255,255,0.02) 25%, transparent 25%);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 0, 12px 0, 0 0;
+    }
+    .gallery-slide.is-empty::after {
+      content: 'IMAGEN NO DISPONIBLE';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; letter-spacing: 0.18em;
+      color: #4a4a4a; text-transform: uppercase; pointer-events: none;
+    }
+    .gallery-slide.is-empty img,
+    .gallery-slide.is-empty video { display: none; }
+
+    .gallery-hint {
+      position: absolute; bottom: 0.75rem; right: 0.75rem;
+      background-color: rgba(10,10,10,0.75); color: #b0b0b0;
+      font-size: 0.65rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.35rem 0.65rem; border-radius: 2px;
+      border: 1px solid #2a2a2a; pointer-events: none; z-index: 3;
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      transition: opacity 0.2s ease;
+    }
+    .gallery-hint[hidden] { display: none !important; }
+
+    /* ========== CUERPO DEL PRODUCTO ========== */
+    .product-body {
+      padding: 1.75rem 1.75rem 2rem;
+      display: flex; flex-direction: column;
+    }
+    .product-body .product-category {
+      font-size: 0.68rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: #7a7a7a; margin-bottom: 0.65rem;
+    }
+    .product-body h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.55rem); font-weight: 600;
+      color: #ffffff; letter-spacing: 0.02em; text-transform: uppercase;
+      line-height: 1.25; margin-bottom: 1rem;
+    }
+    .product-body .product-description {
+      font-size: 0.92rem; color: #b0b0b0; font-weight: 300;
+      line-height: 1.7; margin-bottom: 1.25rem;
+    }
+    .spec-list {
+      list-style: none; margin-bottom: 1.75rem;
+      border-top: 1px solid #1f1f1f; padding-top: 1rem;
+    }
+    .spec-list li {
+      display: flex; align-items: flex-start; gap: 0.65rem;
+      font-size: 0.85rem; color: #a8a8a8; padding: 0.4rem 0;
+      font-weight: 300; line-height: 1.5;
+    }
+    .spec-list li::before {
+      content: '▸'; color: #6a6a6a; font-size: 0.75rem;
+      line-height: 1.6; flex-shrink: 0;
+    }
+    .spec-list li strong { color: #d8d8d8; font-weight: 500; }
+
+    .product-action {
+      display: inline-flex; align-items: center; justify-content: space-between;
+      gap: 0.5rem; background-color: transparent; border: 1px solid #3a3a3a;
+      color: #e0e0e0; text-decoration: none; font-size: 0.72rem;
+      font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.85rem 1.2rem; border-radius: 2px;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer; width: 100%; margin-top: auto;
+    }
+    .product-action:hover {
+      background-color: #ffffff; color: #0a0a0a; border-color: #ffffff;
+    }
+    .product-action .action-arrow {
+      font-size: 0.9rem; line-height: 1; transition: transform 0.25s ease;
+    }
+    .product-action:hover .action-arrow { transform: translateX(4px); }
+
+    /* ========== LIGHTBOX MODAL ========== */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 2000;
+      background-color: rgba(5, 5, 5, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+      padding: 1.5rem;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .lightbox.is-open { opacity: 1; visibility: visible; }
+
+    .lightbox-stage {
+      position: relative;
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .lightbox-figure {
+      max-width: 100%; max-height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      pointer-events: none;
+      margin: 0;
+    }
+    .lightbox-figure img {
+      max-width: 100vw; max-height: 88vh;
+      width: auto; height: auto;
+      object-fit: contain; display: block;
+      user-select: none; -webkit-user-drag: none;
+      border: 1px solid #262626; border-radius: 2px;
+      background-color: #0d0d0d;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.8);
+      transform: scale(0.96);
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  opacity 0.2s ease;
+      pointer-events: auto;
+      will-change: transform, opacity;
+    }
+    .lightbox.is-open .lightbox-figure img { transform: scale(1); }
+    .lightbox-figure img.is-swiping {
+      transition: none;
+      cursor: grabbing;
+    }
+
+    .lightbox-close {
+      position: absolute; top: 1rem; right: 1rem;
+      width: 44px; height: 44px;
+      background-color: rgba(17, 17, 17, 0.9);
+      color: #e0e0e0;
+      border: 1px solid #3a3a3a; border-radius: 50%;
+      font-size: 1.4rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 4;
+      transition: background-color 0.2s ease, border-color 0.2s ease,
+                  transform 0.2s ease, color 0.2s ease;
+    }
+    .lightbox-close:hover {
+      background-color: #1f1f1f;
+      border-color: #9a9a9a;
+      color: #ffffff;
+      transform: rotate(90deg);
+    }
+    .lightbox-close:focus-visible {
+      outline: 2px solid #9a9a9a;
+      outline-offset: 2px;
+    }
+
+    .lightbox-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 52px; height: 52px;
+      background-color: rgba(17, 17, 17, 0.85);
+      color: #e0e0e0;
+      border: 1px solid #3a3a3a; border-radius: 50%;
+      font-size: 1.75rem; line-height: 1; font-weight: 300;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 3;
+      transition: background-color 0.2s ease, border-color 0.2s ease,
+                  color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .lightbox-nav:hover {
+      background-color: #1f1f1f;
+      border-color: #9a9a9a;
+      color: #ffffff;
+    }
+    .lightbox-nav:active { transform: translateY(-50%) scale(0.94); }
+    .lightbox-nav:focus-visible {
+      outline: 2px solid #9a9a9a;
+      outline-offset: 2px;
+    }
+    .lightbox-nav[disabled] { opacity: 0; pointer-events: none; }
+    .lightbox-nav.prev { left: 1rem; }
+    .lightbox-nav.next { right: 1rem; }
+
+    .lightbox-counter {
+      position: absolute; bottom: 1.25rem; left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(10, 10, 10, 0.8);
+      color: #b0b0b0;
+      font-size: 0.7rem; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid #2a2a2a; border-radius: 2px;
+      pointer-events: none; z-index: 3;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    /* ========== WHATSAPP FLOTANTE ========== */
+    .whatsapp-float {
+      position: fixed; bottom: 1.75rem; right: 1.75rem;
+      width: 58px; height: 58px; background-color: #25D366;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.35), 0 2px 8px rgba(0,0,0,0.4);
+      z-index: 1000; text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08) translateY(-2px); background-color: #2ee06e;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5), 0 3px 12px rgba(0,0,0,0.5);
+    }
+    .whatsapp-float:active { transform: scale(0.96); }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: #ffffff; display: block; }
+    .whatsapp-float::after {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      border: 2px solid rgba(37,211,102,0.5);
+      animation: pulseRing 2.5s ease-out infinite; pointer-events: none;
+    }
+    @keyframes pulseRing {
+      0% { transform: scale(1); opacity: 0.7; }
+      70% { transform: scale(1.4); opacity: 0; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+    .whatsapp-float .tooltip {
+      position: absolute; right: 70px; top: 50%;
+      transform: translateY(-50%) scale(0.9);
+      background-color: #1a1a1a; color: #e0e0e0;
+      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 0.5rem 0.85rem; border-radius: 3px;
+      border: 1px solid #333333; white-space: nowrap; opacity: 0;
+      pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .whatsapp-float:hover .tooltip { opacity: 1; transform: translateY(-50%) scale(1); }
+
+    /* ========== LOGO FLOTANTE ========== */
+    .brand-float {
+      position: fixed; bottom: 6.5rem; right: 1.75rem;
+      width: 56px; height: 56px; border-radius: 50%;
+      background-color: #111111; border: 1px solid #2c2c2c;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04);
+      z-index: 999; text-decoration: none;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .brand-float img {
+      width: 100%; height: 100%; object-fit: contain; display: block; padding: 6px;
+    }
+    .brand-float:hover {
+      transform: scale(1.08) translateY(-2px); border-color: #9a9a9a;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 14px rgba(255,255,255,0.15);
+    }
+    .brand-float::after {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.06); pointer-events: none;
+    }
+    .brand-float[hidden] { display: none !important; }
+
+    /* ========== FOOTER ========== */
+    .page-footer {
+      text-align: center; margin-top: 4rem; padding-top: 2rem;
+      border-top: 1px solid #1f1f1f; font-size: 0.72rem;
+      color: #606060; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (min-width: 820px) {
+      .product-card { grid-template-columns: 1fr 1.15fr; }
+      .product-gallery {
+        height: 100%; min-height: 340px;
+        border-bottom: none; border-right: 1px solid #1f1f1f;
+      }
+      .gallery-track { aspect-ratio: auto; height: 100%; min-height: 340px; }
+      .product-body { padding: 2.25rem; justify-content: center; }
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.75rem 1rem 6rem; }
+      .back-link { margin-bottom: 2rem; font-size: 0.7rem; }
+      .product-header { margin-bottom: 2.5rem; padding-bottom: 1.75rem; }
+      .product-header h1 { font-size: 1.5rem; }
+      .product-body { padding: 1.4rem 1.35rem 1.6rem; }
+      .product-body h2 { font-size: 1.2rem; }
+      .product-body .product-description { font-size: 0.87rem; }
+      .spec-list li { font-size: 0.82rem; }
+      .whatsapp-float {
+        width: 52px; height: 52px; bottom: 1.25rem; right: 1.25rem;
+      }
+      .whatsapp-float svg { width: 26px; height: 26px; }
+      .whatsapp-float .tooltip { display: none; }
+      .brand-float {
+        width: 48px; height: 48px; bottom: 5.5rem; right: 1.25rem;
+      }
+      .gallery-hint { font-size: 0.6rem; padding: 0.3rem 0.55rem; }
+      .lightbox { padding: 0.75rem; }
+      .lightbox-close { top: 0.75rem; right: 0.75rem; width: 40px; height: 40px; font-size: 1.2rem; }
+      .lightbox-counter { bottom: 0.85rem; font-size: 0.65rem; }
+      .lightbox-nav { width: 44px; height: 44px; font-size: 1.5rem; }
+      .lightbox-nav.prev { left: 0.5rem; }
+      .lightbox-nav.next { right: 0.5rem; }
+      .lightbox-figure img { max-height: 82vh; }
+    }
+    @media (max-width: 480px) {
+      .product-header h1 { font-size: 1.35rem; }
+      .product-body { padding: 1.2rem 1.15rem 1.4rem; }
+      .product-body h2 { font-size: 1.1rem; }
+      .product-action { font-size: 0.66rem; padding: 0.75rem 1rem; }
+      .whatsapp-float {
+        width: 48px; height: 48px; bottom: 1rem; right: 1rem;
+      }
+      .whatsapp-float svg { width: 24px; height: 24px; }
+      .brand-float {
+        width: 42px; height: 42px; bottom: 4.75rem; right: 1rem;
+      }
+      .brand-float img { padding: 4px; }
+      .gallery-hint { display: none; }
+      .lightbox-nav { width: 38px; height: 38px; font-size: 1.35rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .gallery-track { scroll-behavior: auto; }
+      .lightbox, .lightbox-figure img, .lightbox-close, .lightbox-nav { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="main-container">
+    <a href="index.html" class="back-link">
+      <span class="arrow">←</span> Volver al catálogo
+    </a>
+
+    <header class="product-header">
+      <span class="platform-tag">Plataforma Taurus</span>
+      <h1>Taurus TH9</h1>
+      <p class="platform-desc">
+        Componentes exclusivos desarrollados para la plataforma Taurus TH9. Ingeniería de grado armero, mecanizado CNC de precisión en aluminio de alta resistencia y polímeros de alto desempeño para elevar el rendimiento táctico de tu arma.
+      </p>
+    </header>
+
+    <section class="products-section" aria-label="Accesorios para Taurus TH9">
+
+      <!-- ===================== Producto 1: Reload Master ===================== -->
+      <article class="product-card">
+        <div class="product-gallery">
+          <div class="gallery-track"
+               role="region"
+               aria-label="Galería Embudo Reload Master"
+               data-base="img/taurus-th9/reload-master"
+               data-alt-prefix="Embudo Taurus TH9 Reload Master de aluminio — vista"
+               data-max="20"></div>
+          <span class="gallery-hint" hidden>Desliza →</span>
+        </div>
+
+        <div class="product-body">
+          <p class="product-category">Embudo de Recarga · Taurus TH9</p>
+          <h2>Embudo Taurus TH9 Reload Master</h2>
+          <p class="product-description">
+            Diseñado para la recarga táctica rápida en condiciones de alta exigencia. El Reload Master, en su versión de tamaño estándar (modelo grande), maximiza la superficie de inserción del cargador, optimiza el tiempo entre recargas, elimina enganches y garantiza una inserción fluida incluso bajo presión. Fabricado en aluminio de alta resistencia mediante mecanizado de precisión de grado armero, con acabado pulido de baja fricción que guía el cargador con precisión milimétrica.
+          </p>
+          <ul class="spec-list">
+            <li><strong>Material:</strong> aluminio de alta resistencia mecanizado de precisión, grado armero.</li>
+            <li><strong>Tamaño:</strong> estándar (modelo grande), maximiza la superficie de inserción del cargador.</li>
+            <li><strong>Recarga táctica rápida:</strong> boca ampliada que guía el cargador sin enganches.</li>
+            <li><strong>Durabilidad estructural:</strong> cuerpo de aluminio sólido resistente a impactos y desgaste.</li>
+            <li><strong>Acabado:</strong> pulido de baja fricción para inserciones fluidas y consistentes.</li>
+            <li><strong>Compatibilidad:</strong> exclusiva para plataforma Taurus TH9.</li>
+          </ul>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesa%20el%20Embudo%20Taurus%20TH9%20Reload%20Master%20en%20aluminio%20de%20alta%20resistencia.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F"
+             target="_blank" rel="noopener noreferrer" class="product-action">
+            Solicitar Embudo Reload Master <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- ===================== Producto 2: Vorax ===================== -->
+      <article class="product-card">
+        <div class="product-gallery">
+          <div class="gallery-track"
+               role="region"
+               aria-label="Galería Embudo Vorax"
+               data-base="img/taurus-th9/vorax"
+               data-alt-prefix="Embudo Taurus TH9 Vorax de aluminio — vista"
+               data-max="20"></div>
+          <span class="gallery-hint" hidden>Desliza →</span>
+        </div>
+
+        <div class="product-body">
+          <p class="product-category">Componente Táctico · Taurus TH9</p>
+          <h2>Embudo Taurus TH9 Vorax</h2>
+          <p class="product-description">
+            El Embudo Taurus TH9 Vorax es la expresión máxima de la ingeniería de Sol Accesorios para la plataforma Taurus TH9. Fabricado en aluminio de alta resistencia mediante mecanizado CNC de precisión bajo estrictos estándares de grado armero, ofrece un componente robusto, ligero y de perfil táctico. En su versión de tamaño estándar (modelo grande), maximiza la superficie de inserción del cargador, mientras su acabado pulido de baja fricción y su geometría optimizada garantizan inserciones fluidas, mejor control, tracción y respuesta del arma en condiciones reales de uso.
+          </p>
+          <ul class="spec-list">
+            <li><strong>Material:</strong> aluminio de alta resistencia mecanizado CNC de precisión, grado armero.</li>
+            <li><strong>Tamaño:</strong> estándar (modelo grande), maximiza la superficie de inserción del cargador.</li>
+            <li><strong>Durabilidad estructural:</strong> cuerpo de aluminio sólido resistente a impactos, corrosión y desgaste.</li>
+            <li><strong>Acabado:</strong> pulido de baja fricción para inserciones fluidas y consistentes.</li>
+            <li><strong>Diseño:</strong> perfil ergonómico con textura de tracción para uso con guantes.</li>
+            <li><strong>Compatibilidad:</strong> exclusiva para plataforma Taurus TH9.</li>
+          </ul>
+          <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesa%20el%20Embudo%20Taurus%20TH9%20Vorax%20en%20aluminio%20de%20alta%20resistencia.%20%C2%BF%20Podr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F"
+             target="_blank" rel="noopener noreferrer" class="product-action">
+            Solicitar Embudo Vorax <span class="action-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+    <footer class="page-footer">
+      Sol Accesorios — Innovación, Precisión y Calidad de Grado Armero
+    </footer>
+  </main>
+
+  <!-- ========== LIGHTBOX MODAL (compartido para ambas galerías) ========== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen ampliada" hidden>
+    <div class="lightbox-stage" id="lightboxStage">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Cerrar visor">×</button>
+      <button type="button" class="lightbox-nav prev" id="lightboxPrev" aria-label="Imagen anterior">‹</button>
+      <button type="button" class="lightbox-nav next" id="lightboxNext" aria-label="Imagen siguiente">›</button>
+      <figure class="lightbox-figure">
+        <img id="lightboxImg" alt="" />
+      </figure>
+      <span class="lightbox-counter" id="lightboxCounter" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <a href="../index.html" class="brand-float" aria-label="Sol Accesorios — Volver al inicio">
+    <img src="../Logo.png" alt="Sol Accesorios" loading="lazy"
+         onerror="this.closest('.brand-float').hidden = true">
+  </a>
+
+  <a href="https://wa.me/50239581990?text=Hola%2C%20me%20interesa%20una%20consulta%20t%C3%A9cnica%20sobre%20los%20accesorios%20para%20Taurus%20TH9."
+     target="_blank" rel="noopener noreferrer" class="whatsapp-float"
+     aria-label="Contactar por WhatsApp">
+    <span class="tooltip">Consulta Técnica</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16.004 2.667c-7.36 0-13.333 5.973-13.333 13.333 0 2.347.613 4.64 1.784 6.667L2.667 29.333l6.853-1.76c1.963 1.067 4.16 1.627 6.484 1.627 7.36 0 13.333-5.973 13.333-13.333S23.364 2.667 16.004 2.667zm0 24c-2.08 0-4.107-.56-5.867-1.6l-.427-.24-4.053 1.04 1.067-3.947-.267-.427c-1.12-1.813-1.72-3.893-1.72-6.027 0-6.187 5.04-11.227 11.227-11.227s11.227 5.04 11.227 11.227-5.04 11.227-11.227 11.227zm6.24-8.4c-.347-.173-2.053-1.013-2.373-1.12-.32-.12-.547-.173-.773.173-.227.347-.88 1.12-1.08 1.347-.2.227-.4.253-.747.08-.347-.173-1.467-.547-2.787-1.72-1.04-.92-1.733-2.053-1.933-2.4-.2-.347-.027-.533.147-.707.16-.16.347-.4.52-.6.173-.2.227-.347.347-.573.12-.227.053-.427-.027-.6-.08-.173-.773-1.867-1.053-2.547-.28-.667-.56-.573-.773-.587l-.667-.013c-.227 0-.6.08-.92.427-.32.347-1.213 1.187-1.213 2.893 0 1.707 1.24 3.36 1.413 3.587.173.227 2.44 3.72 5.907 5.213.827.36 1.467.573 1.973.733.827.267 1.587.227 2.187.147.667-.093 2.053-.84 2.347-1.653.293-.813.293-1.507.2-1.653-.093-.147-.32-.227-.667-.4z"/>
+    </svg>
+  </a>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Extensiones de imagen y video soportadas, en orden de prioridad.
+      var IMG_EXTS = ['jpg', 'jpeg', 'png', 'webp'];
+      var VID_EXTS = ['mp4', 'webm'];
+      var MEDIA_EXTS = IMG_EXTS.concat(VID_EXTS);
+
+      /* =========================================================
+       * 1) PROBES: detección real con new Image() / new Video()
+       * ========================================================= */
+
+      function probeImage(url) {
+        return new Promise(function (resolve) {
+          var img = new Image();
+          img.onload = function () {
+            resolve(img.naturalWidth > 0 ? { type: 'image', url: url } : null);
+          };
+          img.onerror = function () { resolve(null); };
+          img.src = url;
+        });
+      }
+
+      function probeVideo(url) {
+        return new Promise(function (resolve) {
+          var v = document.createElement('video');
+          var settled = false;
+          function done(res) {
+            if (settled) return;
+            settled = true;
+            v.removeAttribute('src');
+            v.load && v.load();
+            resolve(res);
+          }
+          v.preload = 'metadata';
+          v.muted = true;
+          v.playsInline = true;
+          v.onloadedmetadata = function () {
+            if (v.videoWidth > 0 || v.duration > 0) {
+              done({ type: 'video', url: url });
+            } else {
+              done(null);
+            }
+          };
+          v.onerror = function () { done(null); };
+          setTimeout(function () { done(null); }, 6000);
+          v.src = url;
+        });
+      }
+
+      function probeMedia(url, ext) {
+        if (VID_EXTS.indexOf(ext) !== -1) return probeVideo(url);
+        return probeImage(url);
+      }
+
+      /**
+       * Para un índice N, prueba MEDIA_EXTS en orden y resuelve con el primer
+       * medio válido encontrado ({type, url}) o null si ninguno existe.
+       */
+      function findMediaForIndex(base, n) {
+        return MEDIA_EXTS.reduce(function (acc, ext) {
+          return acc.then(function (found) {
+            if (found) return found;
+            return probeMedia(base + '-' + n + '.' + ext, ext);
+          });
+        }, Promise.resolve(null));
+      }
+
+      /* =========================================================
+       * 2) LIGHTBOX: visor con flechas, teclado y swipe táctil
+       * ========================================================= */
+
+      var Lightbox = (function () {
+        var root, stage, imgEl, counterEl, closeBtn, prevBtn, nextBtn;
+        var lastFocused = null;
+        var imageList = [];
+        var currentIndex = 0;
+
+        var touch = {
+          active: false,
+          startX: 0,
+          startY: 0,
+          currentX: 0,
+          currentY: 0,
+          startTime: 0,
+          axisLocked: null
+        };
+        var SWIPE_THRESHOLD = 50;
+        var SWIPE_VELOCITY = 0.35;
+
+        function open(list, index) {
+          imageList = list;
+          currentIndex = index;
+          lastFocused = document.activeElement;
+          render();
+          updateNav();
+          root.hidden = false;
+          // eslint-disable-next-line no-unused-expressions
+          root.offsetHeight;
+          root.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+          closeBtn.focus();
+          document.addEventListener('keydown', onKey, true);
+          root.addEventListener('click', onBackdropClick);
+          bindTouch();
+        }
+
+        function close() {
+          root.classList.remove('is-open');
+          document.body.style.overflow = '';
+          document.removeEventListener('keydown', onKey, true);
+          root.removeEventListener('click', onBackdropClick);
+          unbindTouch();
+          setTimeout(function () {
+            root.hidden = true;
+            imgEl.removeAttribute('src');
+            imgEl.alt = '';
+            imgEl.style.transform = '';
+            imgEl.style.opacity = '';
+            imgEl.classList.remove('is-swiping');
+            counterEl.textContent = '';
+          }, 220);
+          if (lastFocused && typeof lastFocused.focus === 'function') {
+            lastFocused.focus();
+          }
+        }
+
+        function render() {
+          var item = imageList[currentIndex];
+          if (!item) return;
+          imgEl.src = item.url;
+          imgEl.alt = item.alt || '';
+          counterEl.textContent = imageList.length > 1
+            ? (currentIndex + 1) + ' / ' + imageList.length
+            : '';
+        }
+
+        function updateNav() {
+          var multiple = imageList.length > 1;
+          prevBtn.disabled = !multiple;
+          nextBtn.disabled = !multiple;
+          prevBtn.style.display = multiple ? '' : 'none';
+          nextBtn.style.display = multiple ? '' : 'none';
+        }
+
+        function step(delta) {
+          if (imageList.length < 2) return;
+          currentIndex = (currentIndex + delta + imageList.length) % imageList.length;
+          imgEl.style.opacity = '0';
+          setTimeout(function () {
+            render();
+            imgEl.style.opacity = '1';
+            updateNav();
+          }, 80);
+        }
+
+        function onKey(e) {
+          if (e.key === 'Escape') { e.preventDefault(); close(); }
+          else if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+          else if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+          else if (e.key === 'Tab') {
+            var focusable = [closeBtn, prevBtn, nextBtn].filter(function (b) {
+              return b && !b.disabled && b.offsetParent !== null;
+            });
+            if (!focusable.length) { e.preventDefault(); return; }
+            var idx = focusable.indexOf(document.activeElement);
+            if (e.shiftKey) {
+              idx = idx <= 0 ? focusable.length - 1 : idx - 1;
+            } else {
+              idx = idx === focusable.length - 1 ? 0 : idx + 1;
+            }
+            e.preventDefault();
+            focusable[idx].focus();
+          }
+        }
+
+        function onBackdropClick(e) {
+          if (e.target === root || e.target === stage) close();
+        }
+
+        /* -------- Touch / Swipe -------- */
+        function bindTouch() {
+          stage.addEventListener('touchstart', onTouchStart, { passive: true });
+          stage.addEventListener('touchmove', onTouchMove, { passive: false });
+          stage.addEventListener('touchend', onTouchEnd, { passive: true });
+          stage.addEventListener('touchcancel', onTouchCancel, { passive: true });
+        }
+        function unbindTouch() {
+          stage.removeEventListener('touchstart', onTouchStart);
+          stage.removeEventListener('touchmove', onTouchMove);
+          stage.removeEventListener('touchend', onTouchEnd);
+          stage.removeEventListener('touchcancel', onTouchCancel);
+        }
+
+        function onTouchStart(e) {
+          if (e.touches.length !== 1) return;
+          if (imageList.length < 2) return;
+          touch.active = true;
+          touch.axisLocked = null;
+          touch.startX = e.touches[0].clientX;
+          touch.startY = e.touches[0].clientY;
+          touch.currentX = touch.startX;
+          touch.currentY = touch.startY;
+          touch.startTime = Date.now();
+          imgEl.classList.add('is-swiping');
+          imgEl.style.transition = 'none';
+        }
+
+        function onTouchMove(e) {
+          if (!touch.active) return;
+          if (e.touches.length !== 1) return;
+          var x = e.touches[0].clientX;
+          var y = e.touches[0].clientY;
+          var dx = x - touch.startX;
+          var dy = y - touch.startY;
+
+          if (!touch.axisLocked && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+            touch.axisLocked = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+          }
+          if (touch.axisLocked === 'y') return;
+
+          if (touch.axisLocked === 'x') {
+            e.preventDefault();
+            touch.currentX = x;
+            touch.currentY = y;
+            var isFirst = currentIndex === 0 && dx > 0;
+            var isLast = currentIndex === imageList.length - 1 && dx < 0;
+            var translate = dx;
+            if (isFirst || isLast) translate = dx * 0.35;
+            imgEl.style.transform = 'translateX(' + translate + 'px) scale(1)';
+            imgEl.style.opacity = String(1 - Math.min(Math.abs(translate) / 600, 0.3));
+          }
+        }
+
+        function onTouchEnd(e) {
+          if (!touch.active) return;
+          var endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : touch.currentX;
+          var dx = endX - touch.startX;
+          var elapsed = Date.now() - (touch.startTime || Date.now());
+          var velocity = Math.abs(dx) / Math.max(elapsed, 1);
+
+          imgEl.classList.remove('is-swiping');
+          imgEl.style.transition = '';
+
+          if (touch.axisLocked === 'x' && (Math.abs(dx) > SWIPE_THRESHOLD || velocity > SWIPE_VELOCITY)) {
+            if (dx < 0) {
+              if (currentIndex === imageList.length - 1) {
+                currentIndex = 0;
+                render();
+              } else {
+                currentIndex++;
+                render();
+              }
+            } else {
+              if (currentIndex === 0) {
+                currentIndex = imageList.length - 1;
+                render();
+              } else {
+                currentIndex--;
+                render();
+              }
+            }
+            updateNav();
+          }
+
+          imgEl.style.transform = '';
+          imgEl.style.opacity = '';
+          touch.active = false;
+          touch.axisLocked = null;
+        }
+
+        function onTouchCancel() {
+          imgEl.classList.remove('is-swiping');
+          imgEl.style.transition = '';
+          imgEl.style.transform = '';
+          imgEl.style.opacity = '';
+          touch.active = false;
+          touch.axisLocked = null;
+        }
+
+        function init() {
+          root = document.getElementById('lightbox');
+          stage = document.getElementById('lightboxStage');
+          imgEl = document.getElementById('lightboxImg');
+          counterEl = document.getElementById('lightboxCounter');
+          closeBtn = document.getElementById('lightboxClose');
+          prevBtn = document.getElementById('lightboxPrev');
+          nextBtn = document.getElementById('lightboxNext');
+          if (!root || !stage || !imgEl || !counterEl || !closeBtn || !prevBtn || !nextBtn) return;
+          closeBtn.addEventListener('click', close);
+          prevBtn.addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
+          nextBtn.addEventListener('click', function (e) { e.stopPropagation(); step(1); });
+        }
+
+        return { init: init, open: open, close: close };
+      })();
+
+      /* =========================================================
+       * 3) CONSTRUCCIÓN DE GALERÍA (imágenes + videos)
+       * ========================================================= */
+
+      function buildGallery(track) {
+        var base = track.getAttribute('data-base');
+        var max = parseInt(track.getAttribute('data-max') || '20', 10);
+        var altPrefix = track.getAttribute('data-alt-prefix') || 'Vista';
+        var hint = track.parentElement.querySelector('.gallery-hint');
+        if (!base) return Promise.resolve();
+
+        var tasks = [];
+        for (var n = 1; n <= max; n++) {
+          tasks.push(findMediaForIndex(base, n));
+        }
+
+        return Promise.all(tasks).then(function (results) {
+          var validSlides = [];
+          var imageItems = []; // solo imágenes, para el lightbox
+
+          results.forEach(function (item, idx) {
+            if (!item) return;
+            var n = idx + 1;
+            var slide = document.createElement('div');
+            slide.className = 'gallery-slide';
+
+            if (item.type === 'video') {
+              var video = document.createElement('video');
+              video.src = item.url;
+              video.controls = true;
+              video.muted = true;
+              video.playsInline = true;
+              video.setAttribute('playsinline', '');
+              video.setAttribute('muted', '');
+              video.setAttribute('preload', 'metadata');
+              video.setAttribute('aria-label', altPrefix + ' ' + n + ' (video)');
+              video.addEventListener('error', function () {
+                slide.style.display = 'none';
+              });
+              slide.appendChild(video);
+            } else {
+              var img = document.createElement('img');
+              img.alt = altPrefix + ' ' + n;
+              img.loading = 'lazy';
+              img.decoding = 'async';
+              img.src = item.url;
+              img.classList.add('is-zoomable');
+              img.setAttribute('role', 'button');
+              img.setAttribute('tabindex', '0');
+              img.setAttribute('aria-label', 'Ampliar imagen: ' + altPrefix + ' ' + n);
+              img.addEventListener('error', function () {
+                slide.style.display = 'none';
+              });
+
+              // Registro para lightbox: cada galería tiene su propia lista de
+              // imágenes, así el contador y la navegación son independientes.
+              var galleryImages = imageItems;
+              var imageIndex = galleryImages.length;
+              galleryImages.push({ url: item.url, alt: altPrefix + ' ' + n });
+
+              img.addEventListener('click', function () {
+                Lightbox.open(galleryImages, imageIndex);
+              });
+              img.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  Lightbox.open(galleryImages, imageIndex);
+                }
+              });
+
+              slide.appendChild(img);
+            }
+
+            validSlides.push(slide);
+          });
+
+          if (validSlides.length === 0) {
+            var placeholder = document.createElement('div');
+            placeholder.className = 'gallery-slide is-empty';
+            placeholder.setAttribute('aria-label', 'Imagen no disponible');
+            track.appendChild(placeholder);
+          } else {
+            validSlides.forEach(function (s) { track.appendChild(s); });
+          }
+
+          if (hint) {
+            if (validSlides.length >= 2) {
+              hint.hidden = false;
+              hint.style.display = '';
+            } else {
+              hint.hidden = true;
+              hint.style.display = 'none';
+            }
+          }
+        });
+      }
+
+      /* =========================================================
+       * 4) INICIALIZACIÓN
+       * ========================================================= */
+
+      function init() {
+        Lightbox.init();
+        var tracks = document.querySelectorAll('.gallery-track[data-base]');
+        tracks.forEach(buildGallery);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
